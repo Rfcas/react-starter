@@ -1,15 +1,35 @@
 import React from "react";
+import { BrowserRouter as Router,  Route, Link } from 'react-router-dom';
+import loadable from 'loadable-components'
+
 import env from '@env';
+const Home = loadable(() => import('./home'));
+const About = loadable(() => import('./about'));
+const ToDo = loadable(() => import('./todo-app'))
 
 const App = () => {
-    console.log('env', env);
+        console.log('env', env);
     return (
-        <div>
-            <h1>Hello, world!</h1>
-            {/* <h2>Os 11 porcos do José!</h2>
-            <img src="http://agriculturaemar.com/wp-content/uploads/2016/01/porcos-001-e1477414680302-660x330.jpg"/> */}
+        <div className="container">
+            <div className="col-12">
+                <h1>Hello, world!</h1>
+                <Router>
+                    <div>
+                        <ul>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/about">About</Link></li>
+                            <li><Link to="/todo">ToDo</Link></li>
+                        </ul>
+
+                        <hr />
+
+                        <Route exact path="/" component={Home} />
+                        <Route path="/about" component={About} />
+                        <Route path="/todo" component={ToDo} />
+                    </div>
+                </Router>
+            </div>
         </div>
     )
 };
-
 export default App;
