@@ -1,18 +1,20 @@
-import { connect } from 'react-redux';
+import React from "react";
+import { Route } from 'react-router-dom';
 
-import { actions } from '@state';
-import ToDoApp from './presentational';
+import TodoList from './shared/todo-list';
+import TodoAdder from './shared/todo-adder';
+import TodoSingle from './todo-single';
 
-const mapStateToProps = (state, ownProps) => ({
-    todoList: state.todoList,
-});
+const TodoApp = () => (
+    <div>
+        <h1>ToDo works!</h1>
 
-const mapDispatchToProps = {
-    addTodo: actions.todoListActions.AddTodo,
-    toggleTodo: actions.todoListActions.ToggleTodo
-};
+        <TodoAdder />
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ToDoApp);
+        <TodoList />
+
+        <Route path="/todo/:id" component={TodoSingle} />
+    </div>
+);
+
+export default TodoApp;
