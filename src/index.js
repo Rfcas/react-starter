@@ -1,18 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import env from '@env';
 
-// import './style.sass';
-
-const App = () => {
-    console.log('env', env);
-    return (
-        <div>
-            <h1>Hello, world!</h1>
-            {/* <h2>Os 11 porcos do José!</h2>
-            <img src="http://agriculturaemar.com/wp-content/uploads/2016/01/porcos-001-e1477414680302-660x330.jpg"/> */}
-        </div>
-    )
-};
+import App from './app';
+//import { App } from './app'; //Casos em que o export nao é default (export const App)
 
 ReactDOM.render(<App />, document.getElementById("root"));
