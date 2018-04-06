@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = {
     decrement: actions.counterActions.Decrement,
-    increment: actions.counterActions.Increment
+    increment: actions.counterActions.Increment,
+    loadRequest: actions.counterActions.LoadRequest
 };
 
 const About = connect(

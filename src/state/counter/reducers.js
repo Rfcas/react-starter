@@ -13,6 +13,9 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 counter: state.counter - 1
             };
+        
+        case '[COUNTER] LoadSucceeded':
+            return action.value;
 
         default:
             return state;
